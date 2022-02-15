@@ -3,12 +3,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const ejs = require('ejs')
 const exphbs = require("express-handlebars");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const connectDB = require("./config/db");
 const articlesRouter = require("./routes/articles");
+const quizRouter = require("./routes/quiz")
 
 // Load configuration
 dotenv.config({ path: "./config/config.env" });
@@ -25,7 +27,11 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+//EJS
+app.set('view engine', 'ejs')
+
 // Handlebars
+
 app.engine(".hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
@@ -51,6 +57,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/articles", articlesRouter)
+app.use("/quiz", quizRouter)
 
 
 const PORT = process.env.PORT || 3000;

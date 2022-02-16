@@ -10,6 +10,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const connectDB = require("./config/db");
 const articlesRouter = require("./routes/articles");
+const methodOverride = require('method-override');
 const quizRouter = require("./routes/quiz");
 
 // Load configuration
@@ -34,6 +35,12 @@ app.set("view engine", "ejs");
 
 app.engine(".hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", ".hbs");
+
+//method overide for delete button
+app.use(methodOverride('_method'))
+
+//Read blog posts 
+app.use(express.urlencoded({ extended: false}))
 
 // Sessions
 

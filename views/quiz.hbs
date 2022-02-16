@@ -1,17 +1,863 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apprentice Quiz</title>
-
+    <link rel="stylesheet" href="quiz.css">
+    <script src="../public/js/quiz.js"></script>
   </head>
   <body>
-    <div id="quiz"></div>
-    <button id="submit">Submit Quiz</button>
-    <div id="results"></div>
-    
-
-    <script src="../public/js/quiz.js"></script>
+    <body>
+        <h1 class="quizHeader">Take the Apprentice Quiz!</h1>
+        <h2 class="subjectHeader">Java</h2>
+          <tr>
+            <td>
+                <div>
+                    <p class="JavaQuestion">1. A collection of data items, all of the same type, in which each item's position is uniquely designed by an integer?</p>
+                  <ul>
+                  <input class="JavaAnswer" type="radio" name="JavaQ1" value="1">
+                  <label id="correctJavaString1">array</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ1" value="0">
+                  <label>abstract</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ1" value="0">
+                  <label>autoboxing</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ1" value="0">
+                  <label>integer</label>
+                  </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p class="JavaQuestion">2. A java keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited.</p>
+      
+                  <ul>
+                  <input class="JavaAnswer" type="radio" name="JavaQ2" value="0">
+                  <label>array</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ2" value="1">
+                  <label id="correctJavaString2">abstract</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ2" value="0">
+                  <label>casting</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ2" value="0">
+                  <label>double</label>
+                  </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p class="JavaQuestion">3. An event during program execution that prevents the program from continuing normally; an error</p>
+      
+                  <ul>
+                  <input class="JavaAnswer" type="radio" name="JavaQ3" value="0">
+                  <label>extends</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ3" value="1">
+                  <label id="correctJavaString3">exception</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ3" value="0">
+                  <label>identifier</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ3" value="0">
+                  <label>inheritance</label>
+                  </ul>
+              </div>
+            </td>
+            <td>
+                <div>
+                    <p class="JavaQuestion">4. A data item known within a block, but inaccessible to code outside the block.</p>
+      
+                  <ul>
+                  <input class="JavaAnswer" type="radio" name="JavaQ4" value="0">
+                  <label>instance variable</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ4" value="1">
+                  <label id="correctJavaString4">local variable</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ4" value="0">
+                  <label>The best variable</label>
+                  <br>
+                  <input class="JavaAnswer" type="radio" name="JavaQ4" value="0">
+                  <label>method</label>
+                  </ul>
+                </div>
+            </td>
+          </td>
+          <div>
+            <p class="JavaQuestion">5. Using one identifier to refer to multiple items in the same scope.</p>
+          <ul>
+          <input class="JavaAnswer" type="radio" name="JavaQ5" value="1">
+          <label id="correctJavaString5">overloading</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ5" value="0">
+          <label>overriding</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ5" value="0">
+          <label>overdoingit</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ5" value="0">
+          <label>package</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaQuestion">6. A variable data type in which the variable's value is of the appropriate size and format for its type.</p>
+          <ul>
+          <input class="JavaAnswer" type="radio" name="JavaQ6" value="1">
+          <label id="correctJavaString6">primitive type</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ6" value="0">
+          <label>secondary type</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ6" value="0">
+          <label>privilege</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ6" value="0">
+          <label>class</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaQuestion">7. It signifies that the method or variable can be accessed by elements residing in other classes.</p>
+          <ul>
+            <input class="JavaAnswer" type="radio" name="JavaQ7" value="0">
+            <label>private</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ7" value="0">
+          <label>encrypted</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ7" value="0">
+          <label>protected</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ7" value="1">
+          <label id="correctJavaString7">public</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaQuestion">8. A Java keyword used in method declarations to specify that the method does not return any value.</p>
+          <ul>
+            <input class="JavaAnswer" type="radio" name="JavaQ8" value="0">
+            <label>exit</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ8" value="0">
+          <label>while</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ8" value="1">
+          <label id="correctJavaString8">void</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ8" value="0">
+          <label>for</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaQuestion">9. An object that encapsulates and delegates to another object to alter its interface or behavior in some way.</p>
+          <ul>
+          <input class="JavaAnswer" type="radio" name="JavaQ9" value="1">
+          <label id="correctJavaString9">wrapper</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ9" value="0">
+          <label>variable</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ9" value="0">
+          <label>throw</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ9" value="0">
+          <label>Unicode</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaQuestion">10. Automatic conversion between reference and primitive types.</p>
+          <ul>
+          <input class="JavaAnswer" type="radio" name="JavaQ10" value="1">
+          <label id="correctJavaString10">autoboxing</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ10" value="0">
+          <label>break</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ10" value="0">
+          <label>autobox</label>
+          <br>
+          <input class="JavaAnswer" type="radio" name="JavaQ10" value="0">
+          <label>autobots</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+    </tr>
+          </table>
+      <br/>
+        <div class="JavaSubmitter">
+                <input class="JavaQuizSubmit" id="submitJavaButton" onClick="submitJavaQuiz()"
+                type="submit" value="Submit" />
+          </div>
+        
+      <!--show only wrong answers on submit-->
+          <div class="JavaQuizAnswers" id="correctJavaAnswer1"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer2"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer3"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer4"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer5"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer6"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer7"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer8"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer9"></div>
+          <div class="JavaQuizAnswers" id="correctJavaAnswer10"></div>
+      
+      <!--show score upon submit-->
+          <div>
+            <h2 class="JavaQuizScore" id="userJavaScore"></h2>
+          </div>
+          </div>
+          <h2 class="subjectHeader">CSS</h2>
+          <tr>
+            <td>
+                <div>
+                    <p class="CSSQuestion">1. What does CSS stand for?</p>
+                  <ul>
+                  <input class="CSSAnswer" type="radio" name="CSSQ1" value="1">
+                  <label id="correctCSSString1">Cascading Style Sheets</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ1" value="0">
+                  <label>Computer Style Sheets</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ1" value="0">
+                  <label>Coloful Style Sheets</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ1" value="0">
+                  <label>Creative Style Sheets</label>
+                  </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p class="CSSQuestion">2. How do you insert a comment in a CSS file?</p>
+      
+                  <ul>
+                  <input class="CSSAnswer" type="radio" name="CSSQ2" value="0">
+                  <label>// this is a comment</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ2" value="1">
+                  <label id="correctCSSString2">/* this is a comment */</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ2" value="0">
+                  <label>// this is a comment //</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ2" value="0">
+                  <label>'this is a comment</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div>
+                    <p class="CSSQuestion">3. Where in an HTML document is the correct place to refer to an external style sheet?</p>
+      
+                  <ul>
+                  <input class="CSSAnswer" type="radio" name="CSSQ3" value="0">
+                  <label>In the body section</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ3" value="1">
+                  <label id="correctCSSString3">In the head section</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ3" value="0">
+                  <label>At the end of the document</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ3" value="0">
+                  <label>It doesn't matter</label>
+                  </ul>
+              </div>
+            </td>
+            <td>
+                <div>
+                    <p class="CSSQuestion">4. How do you add a background color for all h1 elements?</p>
+      
+                  <ul>
+                  <input class="CSSAnswer" type="radio" name="CSSQ4" value="0">
+                  <label>select.all {background-color:#FFFFFF;}</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ4" value="1">
+                  <label id="correctCSSString4">h1 {background-color:#FFFFFF;}</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ4" value="0">
+                  <label>all.h1 {background-color:#FFFFFF;}</label>
+                  <br>
+                  <input class="CSSAnswer" type="radio" name="CSSQ4" value="0">
+                  <label>h1.all {background-color:#FFFFFF;}</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <div>
+            <p class="CSSQuestion">5. Which property is used to change the background color?</p>
+          <ul>
+          <input class="CSSAnswer" type="radio" name="CSSQ5" value="1">
+          <label id="correctCSSString5">background-color</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ5" value="0">
+          <label>color</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ5" value="0">
+          <label>change: background color</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ5" value="0">
+          <label>bgcolor</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="CSSQuestion">6. Which property is used to change the font of an element?</p>
+          <ul>
+          <input class="CSSAnswer" type="radio" name="CSSQ6" value="1">
+          <label id="correctCSSString6">font-family</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ6" value="0">
+          <label>font-style</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ6" value="0">
+          <label>font-change</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ6" value="0">
+          <label>font-weight</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="CSSQuestion">7. Which CSS property controls the text size?</p>
+          <ul>
+            <input class="CSSAnswer" type="radio" name="CSSQ7" value="0">
+            <label>text-size</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ7" value="0">
+          <label>text-style</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ7" value="0">
+          <label>font-style</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ7" value="1">
+          <label id="correctCSSString7">font-size</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="CSSQuestion">8. Which property is used to change the left margin of an element?</p>
+          <ul>
+            <input class="CSSAnswer" type="radio" name="CSSQ8" value="0">
+            <label>padding-left</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ8" value="0">
+          <label>left-margin</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ8" value="1">
+          <label id="correctCSSString8">margin-left</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ8" value="0">
+          <label>indent</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="CSSQuestion">9. How do you select an element with id 'practice?</p>
+          <ul>
+          <input class="CSSAnswer" type="radio" name="CSSQ9" value="1">
+          <label id="correctCSSString9">#practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ9" value="0">
+          <label>practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ9" value="0">
+          <label>.practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ9" value="0">
+          <label>$practice</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="CSSQuestion">10. How do you select an element with the class 'practice'?</p>
+          <ul>
+          <input class="CSSAnswer" type="radio" name="CSSQ10" value="1">
+          <label id="correctCSSString10">.practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ10" value="0">
+          <label>#practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ10" value="0">
+          <label>$practice</label>
+          <br>
+          <input class="CSSAnswer" type="radio" name="CSSQ10" value="0">
+          <label>c.practice</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+          </table>
+      <br/>
+        <div class="CSSSubmitter">
+                <input class="CSSQuizSubmit" id="submitCSSButton" onClick="submitCSSQuiz()"
+                type="submit" value="Submit" />
+          </div>
+        
+      <!--show only wrong answers on submit-->
+          <div class="CSSQuizAnswers" id="correctCSSAnswer1"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer2"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer3"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer4"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer5"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer6"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer7"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer8"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer9"></div>
+          <div class="CSSQuizAnswers" id="correctCSSAnswer10"></div>
+      
+      <!--show score upon submit-->
+          <div>
+              <h2 class="CSSQuizScore" id="userCSSScore"></h2>
+          </div>
+          </div>
+          <h2 class="subjectHeader">HTML</h2>
+          <tr>
+            <td>
+                <div>
+                    <p class="HTMLQuestion">1. What does HTML stand for?</p>
+                  <ul>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ1" value="1">
+                  <label id="correctHTMLString1">Hyper Text Markup Language</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ1" value="0">
+                  <label>Home Tool Markup Language</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ1" value="0">
+                  <label>Hyperlinks and Text Markup Language</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ1" value="0">
+                  <label>Hyperlink Tool Markup Language</label>
+                  </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p class="HTMLQuestion">2. Choose the correct HTML element for the largest heading.</p>
+      
+                  <ul>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ2" value="0">
+                  <label>h6</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ2" value="1">
+                  <label id="correctHTMLString2">h1</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ2" value="0">
+                  <label>heading</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ2" value="0">
+                  <label>head</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div>
+                    <p class="HTMLQuestion">3. How can you make a numbered list?</p>
+      
+                  <ul>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ3" value="0">
+                  <label>ul</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ3" value="1">
+                  <label id="correctHTMLString3">ol</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ3" value="0">
+                  <label>list</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ3" value="0">
+                  <label>dl</label>
+                  </ul>
+              </div>
+            </td>
+            <td>
+                <div>
+                    <p class="HTMLQuestion">4. Which HTML element defines the title of a document?</p>
+      
+                  <ul>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ4" value="0">
+                  <label>document</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ4" value="1">
+                  <label id="correctHTMLString4">title</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ4" value="0">
+                  <label>meta</label>
+                  <br>
+                  <input class="HTMLAnswer" type="radio" name="HTMLQ4" value="0">
+                  <label>head</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <div>
+            <p class="HTMLQuestion">5. What is the correct HTML element for playing video files?</p>
+          <ul>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ5" value="1">
+          <label id="correctHTMLString5">video</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ5" value="0">
+          <label>mp3</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ5" value="0">
+          <label>media</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ5" value="0">
+          <label>movie</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="HTMLQuestion">6. In HTML, onblur and onfocus are:</p>
+          <ul>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ6" value="1">
+          <label id="correctHTMLString6">Event elements</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ6" value="0">
+          <label>Style attributes</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ6" value="0">
+          <label>Image attributes</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ6" value="0">
+          <label>HTML elements</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="HTMLQuestion">7. What is the correct HTML element for playing audio files?</p>
+          <ul>
+            <input class="HTMLAnswer" type="radio" name="HTMLQ7" value="0">
+            <label>mp3</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ7" value="0">
+          <label>video</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ7" value="0">
+          <label>sound</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ7" value="1">
+          <label id="correctHTMLString7">audio</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="HTMLQuestion">8. In HTML, which attribute is used to specify that an input field must be filled out?</p>
+          <ul>
+            <input class="HTMLAnswer" type="radio" name="HTMLQ8" value="0">
+            <label>validate</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ8" value="0">
+          <label>form</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ8" value="1">
+          <label id="correctHTMLString8">required</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ8" value="0">
+          <label>placeholder</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="HTMLQuestion">9. Which HTML element defines navigation links?</p>
+          <ul>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ9" value="1">
+          <label id="correctHTMLString9">nav</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ9" value="0">
+          <label>navigation</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ9" value="0">
+          <label>navigate</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ9" value="0">
+          <label>nav.link</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="HTMLQuestion">10. Choose the correct HTML element to define emphasized text.</p>
+          <ul>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ10" value="1">
+          <label id="correctHTMLString10">em</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ10" value="0">
+          <label>i</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ10" value="0">
+          <label>italic</label>
+          <br>
+          <input class="HTMLAnswer" type="radio" name="HTMLQ10" value="0">
+          <label>emp</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+          </table>
+      <br/>
+        <div class="HTMLSubmitter">
+                <input class="HTMLQuizSubmit" id="submitHTMLButton" onClick="submitHTMLQuiz()"
+                type="submit" value="Submit" />
+          </div>
+        
+      <!--show only wrong answers on submit-->
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer1"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer2"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer3"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer4"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer5"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer6"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer7"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer8"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer9"></div>
+          <div class="HTMLQuizAnswers" id="correctHTMLAnswer10"></div>
+      
+      <!--show score upon submit-->
+          <div>
+              <h2 class="HTMLQuizScore" id="userHTMLScore"></h2>
+          </div>
+          </div>
+          <h2 class="subjectHeader">JavaScript</h2>
+          <tr>
+            <td>
+                <div>
+                    <p class="JavaScriptQuestion">1. Where is the correct place to insert a JavaScript?</p>
+                  <ul>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ1" value="1">
+                  <label id="correctJavaScriptString1">Both the body and head sections</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ1" value="0">
+                  <label>The div section</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ1" value="0">
+                  <label>The head section</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ1" value="0">
+                  <label>The body section</label>
+                  </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p class="JavaScriptQuestion">2. Inside which HTML element do we put the JavaScript?</p>
+      
+                  <ul>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ2" value="0">
+                  <label>scripting</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ2" value="1">
+                  <label id="correctJavaScriptString2">script</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ2" value="0">
+                  <label>javascript</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ2" value="0">
+                  <label>js</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div>
+                    <p class="JavaScriptQuestion">3. How do you create a function in JavaScript?</p>
+      
+                  <ul>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ3" value="0">
+                  <label>function = myFunction()</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ3"" value="1">
+                  <label id="correctJavaScriptString3">function myFunction()</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ3"" value="0">
+                  <label>function:myFunction()</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ3"" value="0">
+                  <label>function = function()</label>
+                  </ul>
+              </div>
+            </td>
+            <td>
+                <div>
+                    <p class="JavaScriptQuestion">4. How do you write an IF statement in JavaScript?</p>
+      
+                  <ul>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ4" value="0">
+                  <label>if i == 5 then</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ4" value="1">
+                  <label id="correctJavaScriptString4">if (i == 5)</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ4" value="0">
+                  <label>if i = 5</label>
+                  <br>
+                  <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ4" value="0">
+                  <label>if i = 5 then</label>
+                  </ul>
+                </div>
+            </td>
+          </tr>
+          <div>
+            <p class="JavaScriptQuestion">5. How do you call a function named myFunction?</p>
+          <ul>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ5" value="1">
+          <label id="correctJavaScriptString5">myFunction()</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ5" value="0">
+          <label>call myFunction()</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ5" value="0">
+          <label>call function myFunction()</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ5" value="0">
+          <label>call = myFunction()</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaScriptQuestion">6. How do you write an IF statement for executing code if i is NOT equal to 5?</p>
+          <ul>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ6" value="1">
+          <label id="correctJavaScriptString6">if (i!=5)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ6" value="0">
+          <label>if i <> 5</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ6" value="0">
+          <label>if i=! 5 then</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ6" value="0">
+          <label>if (i<>5)</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaScriptQuestion">7. How do you start a WHILE loop in JavaScript?</p>
+          <ul>
+            <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ7" value="0">
+            <label>WHILE ( == 10)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ7" value="0">
+          <label>while i = 1 to 10</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ7" value="0">
+          <label>while (i <= 10; i++)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ7" value="1">
+          <label id="correctJavaScriptString7">while ( <= 10)</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaScriptQuestion">8. How do you add a comment in JavaScript?</p>
+          <ul>
+            <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ8" value="0">
+            <label>$This is a comment</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ8" value="0">
+          <label>'This is a comment</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ8" value="1">
+          <label id="correctJavaScriptString8">//This is a comment</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ8" value="0">
+          <label>!--This is comment</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaScriptQuestion">9. How do you find the number with the highest value of x and y?</p>
+          <ul>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ9" value="1">
+          <label id="correctJavaScriptString9">Math.max(x,y)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ9" value="0">
+          <label>ceil(x,y)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ9" value="0">
+          <label>top(x,y)</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ9" value="0">
+          <label>Math.ceil(x,y)</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+        <div>
+            <p class="JavaScriptQuestion">10. Which event occurs when the user clicks on an HTML element?</p>
+          <ul>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ10" value="1">
+          <label id="correctJavaScriptString10">onclick</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ10" value="0">
+          <label>onmouseclick</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ10" value="0">
+          <label>onchange</label>
+          <br>
+          <input class="JavaScriptAnswer" type="radio" name="JavaScriptQ10" value="0">
+          <label>onmouseover</label>
+          </ul>
+        </div>
+    </td>
+    <td>
+          </table>
+      <br/>
+        <div class="JavaScriptSubmitter">
+                <input class="JavaScriptQuizSubmit" id="submitJavaScriptButton" onClick="submitJavaScriptQuiz()"
+                type="submit" value="Submit" />
+          </div>
+        
+      <!--show only wrong answers on submit-->
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer1"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer2"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer3"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer4"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer5"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer6"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer7"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer8"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer9"></div>
+          <div class="JavaScriptQuizAnswers" id="correctJavaScriptAnswer10"></div>
+      
+      <!--show score upon submit-->
+          <div>
+              <h2 class="JavaScriptQuizScore" id="userJavaScriptScore"></h2>
+          </div>
+          </div>
+      </body>
   </body>
 </html>

@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const ejs = require('ejs')
+const ejs = require("ejs");
 const exphbs = require("express-handlebars");
 const passport = require("passport");
 const session = require("express-session");
@@ -11,7 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 const connectDB = require("./config/db");
 const articlesRouter = require("./routes/articles");
 const methodOverride = require('method-override');
-const quizRouter = require("./routes/quiz")
+const quizRouter = require("./routes/quiz");
 
 // Load configuration
 dotenv.config({ path: "./config/config.env" });
@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //EJS
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs");
 
 // Handlebars
 
@@ -49,7 +49,7 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection})
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
@@ -59,13 +59,11 @@ app.use(passport.session());
 
 // Static folder
 app.use(express.static(path.join(__dirname, "public")));
-
 // Routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
-app.use("/articles", articlesRouter)
-app.use("/quiz", quizRouter)
-
+app.use("/articles", articlesRouter);
+app.use("/quiz", quizRouter);
 
 const PORT = process.env.PORT || 3000;
 

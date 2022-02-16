@@ -1,11 +1,20 @@
-<nav class="grey darken-3">
-    <div class="nav-wrapper container">
-        <a href="/dashboard" class="brand-logo center">FABA</a>
-        <a href="/dashboard" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="/quiz">Quizes</a></li>
-            <li><a href="/articles">Articles</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
-        </ul>
+<body>
+  <nav class="grey darken-3">
+    <div class="nav-wrapper position">
+      <a href="/dashboard" class="brand-logo center">FABA</a>
+      <a
+        href="/dashboard"
+        data-target="mobile-demo"
+        class="sidenav-trigger show-on-large"
+      ><i class="fas fa-bars"></i></a>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/quiz">Quizes</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+        <li><button onclick="darkMode()" class="dark_mode dark_mode_button">Dark
+            Mode</button></li>
+      </ul>
     </div>
-</nav>
+  </nav>
+  <script src="/js/script.js"></script>
+</body>

@@ -11,8 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 const connectDB = require("./config/db");
 const articlesRouter = require("./routes/articles");
 const methodOverride = require('method-override');
-const quizRouter = require("./routes/quiz")
-
+const quizRouter = require("./routes/quiz");
 
 // Load configuration
 dotenv.config({ path: "./config/config.env" });

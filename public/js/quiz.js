@@ -1,477 +1,513 @@
-const quizCont = document.getElementById("quiz");
-const resultsCont = document.getElementById("results");
-const submitBtn = document.getElementById("submit");
+function submitJavaQuiz() {
+  console.log("submitted");
 
-function buildQuiz() {
-  const output = [];
+  // get each answer score
+  function answerJavaScore(qJavaName) {
+    var radiosJavaNo = document.getElementsByName(qJavaName);
 
-  JavaQuestions.forEach((currentQuestion, questionNumber) => {
-    const answers = [];
-
-    for (letter in currentQuestion.answers) {
-      answers.push(
-        `<label>
-          <input type="radio" name="question${1}" value="${letter}"> 
-          ${letter} :
-          ${currentQuestion.answers[letter]}
-          </label>`
-      );
+    for (var i = 0, length = radiosJavaNo.length; i < length; i++) {
+      if (radiosJavaNo[i].checked) {
+        // do something with radiosNo
+        var answerJavaValue = Number(radiosJavaNo[i].value);
+      }
     }
+    // change NaNs to zero
+    if (isNaN(answerJavaValue)) {
+      answerJavaValue = 0;
+    }
+    return answerJavaValue;
+  }
 
-    output.push(
-      `<div class="question"> ${currentQuestion.question} </div>
-      <div class="answers"> ${answers.join("")} </div>`
+  // calc score with answerScore function
+  var calcJavaScore =
+    answerJavaScore("JavaQ1") +
+    answerJavaScore("JavaQ2") +
+    answerJavaScore("JavaQ3") +
+    answerJavaScore("JavaQ4") +
+    answerJavaScore("JavaQ5") +
+    answerJavaScore("JavaQ6") +
+    answerJavaScore("JavaQ7") +
+    answerJavaScore("JavaQ8") +
+    answerJavaScore("JavaQ9") +
+    answerJavaScore("JavaQ10");
+  console.log("CalcJavaScore: " + calcJavaScore); // it works!
+
+  // function to return correct answer string
+  function correctJavaAnswer(correctJavaStringNo, qJavaNumber) {
+    console.log("qJavaNumber: " + qJavaNumber); // logs 1,2,3,4 after called below
+    return (
+      "The correct answer for question #" +
+      qJavaNumber +
+      ": &nbsp;<strong>" +
+      document.getElementById(correctJavaStringNo).innerHTML +
+      "</strong>"
     );
-  });
+  }
 
-  quizCont.innerHTML = output.join("");
+  // print correct answers only if wrong (calls correctAnswer function)
+  if (answerJavaScore("JavaQ1") === 0) {
+    document.getElementById("correctJavaAnswer1").innerHTML = correctJavaAnswer(
+      "correctJavaString1",
+      1
+    );
+  }
+  if (answerJavaScore("JavaQ2") === 0) {
+    document.getElementById("correctJavaAnswer2").innerHTML = correctJavaAnswer(
+      "correctJavaString2",
+      2
+    );
+  }
+  if (answerJavaScore("JavaQ3") === 0) {
+    document.getElementById("correctJavaAnswer3").innerHTML = correctJavaAnswer(
+      "correctJavaString3",
+      3
+    );
+  }
+  if (answerJavaScore("qJavaQ4") === 0) {
+    document.getElementById("correctJavaAnswer4").innerHTML = correctJavaAnswer(
+      "correctJavaString4",
+      4
+    );
+  }
+  if (answerJavaScore("JavaQ5") === 0) {
+    document.getElementById("correctJavaAnswer5").innerHTML = correctJavaAnswer(
+      "correctJavaString5",
+      5
+    );
+  }
+  if (answerJavaScore("JavaQ6") === 0) {
+    document.getElementById("correctJavaAnswer6").innerHTML = correctJavaAnswer(
+      "correctJavaString6",
+      6
+    );
+  }
+  if (answerJavaScore("JavaQ7") === 0) {
+    document.getElementById("correctJavaAnswer7").innerHTML = correctJavaAnswer(
+      "correctJavaString7",
+      7
+    );
+  }
+  if (answerJavaScore("JavaQ8") === 0) {
+    document.getElementById("correctJavaAnswer8").innerHTML = correctJavaAnswer(
+      "correctString8",
+      8
+    );
+  }
+  if (answerJavaScore("JavaQ9") === 0) {
+    document.getElementById("correctJavaAnswer9").innerHTML = correctJavaAnswer(
+      "correctJavaString9",
+      9
+    );
+  }
+  if (answerJavaScore("JavaQ10") === 0) {
+    document.getElementById("correctJavaAnswer10").innerHTML =
+      correctJavaAnswer("correctJavaString10", 10);
+  }
+
+  // calculate "possible score" integer
+  var questionCountJavaArray = document.getElementsByClassName("JavaQuestion");
+
+  var JavaQuestionCounter = 0;
+  for (var i = 0, length = questionCountJavaArray.length; i < length; i++) {
+    JavaQuestionCounter++;
+  }
+
+  // show score as "score/possible score"
+  var showJavaScore =
+    "Your Score: " + calcJavaScore + "/" + JavaQuestionCounter;
+  // if 10/10, "perfect score!"
+  if (calcJavaScore === JavaQuestionCounter) {
+    showJavaScore = showJavaScore + "&nbsp; <strong>Perfect Score!</strong>";
+  }
+  document.getElementById("userJavaScore").innerHTML = showJavaScore;
 }
 
-function showResults() {
-  const answerContainers = quizContainer.querySelectorAll(".answers");
-  let numCorrect = 0;
+$(document).ready(function () {
+  $("#submitJavaButton").click(function () {
+    $(this).addClass("hide");
+  });
+});
 
-  JavaQuestions.forEach((currentQuestion, questionNumber) => {
-    const answerContainer = answerContainers[questionNumber];
-    const selector = `input[name=question${questionNumber}]:checked`;
-    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+function submitCSSQuiz() {
+  console.log("submitted");
 
-    if (userAnswer === currentQuestion.correctAnswer) {
-      numCorrect++;
+  // get each answer score
+  function answerCSSScore(qCSSName) {
+    var radiosCSSNo = document.getElementsByName(qCSSName);
 
-      answerContainers[questionNumber].style.color = "lightgreen";
-    } else {
-      answerContainers[questionNumber].style.color = "red";
+    for (var i = 0, length = radiosCSSNo.length; i < length; i++) {
+      if (radiosCSSNo[i].checked) {
+        // do something with radiosNo
+        var answerCSSValue = Number(radiosCSSNo[i].value);
+      }
     }
-  });
+    // change NaNs to zero
+    if (isNaN(answerCSSValue)) {
+      answerCSSValue = 0;
+    }
+    return answerCSSValue;
+  }
 
-  resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  // calc score with answerScore function
+  var calcCSSScore =
+    answerCSSScore("CSSQ1") +
+    answerCSSScore("CSSQ2") +
+    answerCSSScore("CSSQ3") +
+    answerCSSScore("CSSQ4") +
+    answerCSSScore("CSSQ5") +
+    answerCSSScore("CSSQ6") +
+    answerCSSScore("CSSQ7") +
+    answerCSSScore("CSSQ8") +
+    answerCSSScore("CSSQ9") +
+    answerCSSScore("CSSQ10");
+  console.log("CalcCSSScore: " + calcCSSScore); // it works!
+
+  // function to return correct answer string
+  function correctCSSAnswer(correctCSSStringNo, qCSSNumber) {
+    console.log("qCSSNumber: " + qCSSNumber); // logs 1,2,3,4 after called below
+    return (
+      "The correct answer for question #" +
+      qCSSNumber +
+      ": &nbsp;<strong>" +
+      document.getElementById(correctCSSStringNo).innerHTML +
+      "</strong>"
+    );
+  }
+
+  // print correct answers only if wrong (calls correctAnswer function)
+  if (answerCSSScore("CSSQ1") === 0) {
+    document.getElementById("correctCSSAnswer1").innerHTML = correctCSSAnswer(
+      "correctCSSString1",
+      1
+    );
+  }
+  if (answerCSSScore("CSSQ2") === 0) {
+    document.getElementById("correctCSSAnswer2").innerHTML = correctCSSAnswer(
+      "correctCSSString2",
+      2
+    );
+  }
+  if (answerCSSScore("CSSQ3") === 0) {
+    document.getElementById("correctCSSAnswer3").innerHTML = correctCSSAnswer(
+      "correctCSSString3",
+      3
+    );
+  }
+  if (answerCSSScore("CSSQ4") === 0) {
+    document.getElementById("correctCSSAnswer4").innerHTML = correctCSSAnswer(
+      "correctCSSString4",
+      4
+    );
+  }
+  if (answerCSSScore("CSSQ5") === 0) {
+    document.getElementById("correctCSSAnswer5").innerHTML = correctCSSAnswer(
+      "correctCSSString5",
+      5
+    );
+  }
+  if (answerCSSScore("CSSQ6") === 0) {
+    document.getElementById("correctCSSAnswer6").innerHTML = correctCSSAnswer(
+      "correctCSSString6",
+      6
+    );
+  }
+  if (answerCSSScore("CSSQ7") === 0) {
+    document.getElementById("correctCSSAnswer7").innerHTML = correctCSSAnswer(
+      "correctCSSString7",
+      7
+    );
+  }
+  if (answerCSSScore("CSSQ8") === 0) {
+    document.getElementById("correctCSSAnswer8").innerHTML = correctCSSAnswer(
+      "correctCSSString8",
+      8
+    );
+  }
+  if (answerCSSScore("CSSQ9") === 0) {
+    document.getElementById("correctCSSAnswer9").innerHTML = correctCSSAnswer(
+      "correctCSSString9",
+      9
+    );
+  }
+  if (answerCSSScore("CSSQ10") === 0) {
+    document.getElementById("correctCSSAnswer10").innerHTML = correctCSSAnswer(
+      "correctCSSString10",
+      10
+    );
+  }
+
+  // calculate "possible score" integer
+  var questionCountCSSArray = document.getElementsByClassName("CSSQuestion");
+
+  var CSSQuestionCounter = 0;
+  for (var i = 0, length = questionCountCSSArray.length; i < length; i++) {
+    CSSQuestionCounter++;
+  }
+
+  // show score as "score/possible score"
+  var showCSSScore = "Your Score: " + calcCSSScore + "/" + CSSQuestionCounter;
+  // if 4/4, "perfect score!"
+  if (calcCSSScore === CSSQuestionCounter) {
+    showCSSScore = showCSSScore + "&nbsp; <strong>Perfect Score!</strong>";
+  }
+  document.getElementById("userCSSScore").innerHTML = showCSSScore;
 }
 
-buildQuiz();
+$(document).ready(function () {
+  $("#submitCSSButton").click(function () {
+    $(this).addClass("hide");
+  });
+});
 
-submitBtn.addEventListener("click", showResults);
+function submitHTMLQuiz() {
+  console.log("submitted");
 
-const JavaQuestions = [
-  {
-    question:
-      "A collection of data items, all of the same type, in which each item's position is uniquely designed by an integer.",
-    answers: {
-      A: "abstract",
-      B: "array",
-      C: "autoboxing",
-      D: "integer",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question:
-      "A java keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited.",
-    answers: {
-      A: "abstract",
-      B: "array",
-      C: "casting",
-      D: "double",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question:
-      "An event during program execution that prevents the program from continuing normally; an error",
-    answers: {
-      A: "extends",
-      B: "identifier",
-      C: "exception",
-      D: "inheritance",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question:
-      "A data item known within a block, but inaccessible to code outside the block.",
-    answers: {
-      A: "instance variable",
-      B: "local variable",
-      C: "The best variable",
-      D: "method",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question:
-      "Using one identifier to refer to multiple items in the same scope.",
-    answers: {
-      A: "overdoingit",
-      B: "overloading",
-      C: "overriding",
-      D: "package",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question:
-      "A variable data type in which the variable's value is of the appropriate size and format for its type.",
-    answers: {
-      A: "primitive type",
-      B: "secondary type",
-      C: "privilege",
-      D: "class",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question:
-      "It signifies that the method or variable can be accessed by elements residing in other classes.",
-    answers: {
-      A: "private",
-      B: "encrypted",
-      C: "protected",
-      D: "public",
-    },
-    correctAnswer: "D",
-  },
-  {
-    question:
-      "A Java keyword used in method declarations to specify that the method does not return any value.",
-    answers: {
-      A: "exit",
-      B: "while",
-      C: "void",
-      D: "for",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question:
-      "An object that encapsulates and delegates to another object to alter its interface or behavior in some way.",
-    answers: {
-      A: "Unicode",
-      B: "throw",
-      C: "variable",
-      D: "wrapper",
-    },
-    correctAnswer: "D",
-  },
-  {
-    question: "Automatic conversion between reference and primitive types.",
-    answers: {
-      A: "autobots",
-      B: "authentication",
-      C: "break",
-      D: "autoboxing",
-    },
-    correctAnswer: "D",
-  },
-];
+  // get each answer score
+  function answerHTMLScore(qHTMLName) {
+    var radiosHTMLNo = document.getElementsByName(qHTMLName);
 
-const CSSQuestions = [
-  {
-    question: "What does CSS stand for?",
-    answers: {
-      A: "Cascading Style Sheets",
-      B: "Computer Style Sheets",
-      C: "Coloful Style Sheets",
-      D: "Creative Style Sheets",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question: "How do you insert a comment in a CSS file?",
-    answers: {
-      A: "/* this is a comment */",
-      B: "// this is a comment",
-      C: "// this is a comment //",
-      D: "'this is a comment",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question:
-      "Where in an HTML document is the correct place to refer to an external style sheet?",
-    answers: {
-      A: "In the <body> section",
-      B: "In the <head> section",
-      C: "At the end of the document",
-      D: "It doesn't matter",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you add a background color for all <h1> elements?",
-    answers: {
-      A: "select.all {background-color:#FFFFFF;}",
-      B: "h1 {background-color:#FFFFFF;}",
-      C: "all.h1 {background-color:#FFFFFF;}",
-      D: "h1.all {background-color:#FFFFFF;}",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "Which property is used to change the background color?",
-    answers: {
-      A: "color",
-      B: "background-color",
-      C: "change: background color",
-      D: "bgcolor",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "Which property is used to change the font of an element?",
-    answers: {
-      A: "font-style",
-      B: "font-family",
-      C: "font-change",
-      D: "font-weight",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "Which CSS property controls the text size?",
-    answers: {
-      A: "text-size",
-      B: "text-style",
-      C: "font-style",
-      D: "font-size",
-    },
-    correctAnswer: "D",
-  },
-  {
-    question: "Which property is used to change the left margin of an element?",
-    answers: {
-      A: "margin-left",
-      B: "padding-left",
-      C: "left-margin",
-      D: "indent",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question: "How do you select an element with id 'practice?",
-    answers: {
-      A: "practice",
-      B: "#practice",
-      C: ".practice",
-      D: "$practice",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you select an element with the class 'practice'?",
-    answers: {
-      A: ".practice",
-      B: "#practice",
-      C: "$practice",
-      D: "c.practice",
-    },
-    correctAnswer: "A",
-  },
-];
+    for (var i = 0, length = radiosHTMLNo.length; i < length; i++) {
+      if (radiosHTMLNo[i].checked) {
+        // do something with radiosNo
+        var answerHTMLValue = Number(radiosHTMLNo[i].value);
+      }
+    }
+    // change NaNs to zero
+    if (isNaN(answerHTMLValue)) {
+      answerHTMLValue = 0;
+    }
+    return answerHTMLValue;
+  }
 
-const HTMLQuestions = [
-  {
-    question: "What does HTML stand for",
-    answers: {
-      A: "Hyperlink Tool Markup Language",
-      B: "Hyperlinks and Text Markup Language",
-      C: "Home Tool Markup Language",
-      D: "Hyper Text Markup Language",
-    },
-    correctAnswer: "D",
-  },
-  {
-    question: "Choose the correct HTML element for the largest heading.",
-    answers: {
-      A: "<h6>",
-      B: "<heading>",
-      C: "<h1>",
-      D: "<head>",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "How can you make a numbered list?",
-    answers: {
-      A: "<ul>",
-      B: "<list>",
-      C: "<ol>",
-      D: "<dl>",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "Which HTML element defines the title of a document?",
-    answers: {
-      A: "<head>",
-      B: "<meta>",
-      C: "<document>",
-      D: "<title>",
-    },
-    correctAnswer: "D",
-  },
-  {
-    question: "What is the correct HTML element for playing video files?",
-    answers: {
-      A: "<video>",
-      B: "<mp3>",
-      C: "<media>",
-      D: "<movie>",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question: "In HTML, onblur and onfocus are:",
-    answers: {
-      A: "Event elements",
-      B: "Style attributes",
-      C: "Image attributes",
-      D: "HTML elements",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question: "What is the correct HTML element for playing audio files?",
-    answers: {
-      A: "<mp3>",
-      B: "<audio>",
-      C: "<video>",
-      D: "<sound>",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question:
-      "In HTML, which attribute is used to specify that an input field must be filled out?",
-    answers: {
-      A: "validate",
-      B: "form",
-      C: "required",
-      D: "placeholder",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "Which HTML element defines navigation links?",
-    answers: {
-      A: "<navigation>",
-      B: "<navigate>",
-      C: "<nav>",
-      D: "<nav.link>",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "Choose the correct HTML element to define emphasized text.",
-    answers: {
-      A: "<emp>",
-      B: "<italic>",
-      C: "<i>",
-      D: "<em>",
-    },
-    correctAnswer: "D",
-  },
-];
+  // calc score with answerScore function
+  var calcHTMLScore =
+    answerHTMLScore("HTMLQ1") +
+    answerHTMLScore("HTMLQ2") +
+    answerHTMLScore("HTMLQ3") +
+    answerHTMLScore("HTMLQ4") +
+    answerHTMLScore("HTMLQ5") +
+    answerHTMLScore("HTMLQ6") +
+    answerHTMLScore("HTMLQ7") +
+    answerHTMLScore("HTMLQ8") +
+    answerHTMLScore("HTMLQ9") +
+    answerHTMLScore("HTMLQ10");
+  console.log("CalcHTMLScore: " + calcHTMLScore); // it works!
 
-const JavaScriptQuestions = [
-  {
-    question: "Where is the correct place to insert a JavaScript?",
-    answers: {
-      A: "The <body> section>",
-      B: "The <head> section>",
-      C: "Both the <body> and <head> sections",
-      D: "The <div> section",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "Inside which HTML element do we put the JavaScript?",
-    answers: {
-      A: "<scripting>",
-      B: "<script>",
-      C: "<javascript",
-      D: "<js>",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you create a function in JavaScript?",
-    answers: {
-      A: "function = myFunction()",
-      B: "function myFunction()",
-      C: "function:myFunction()",
-      D: "function = function()",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you write an IF statement in JavaScript?",
-    answers: {
-      A: "if i == 5 then",
-      B: "if i = 5",
-      C: "if (i == 5)",
-      D: "if i = 5 then",
-    },
-    correctAnswer: "C",
-  },
-  {
-    question: "How do you call a function named myFunction?",
-    answers: {
-      A: "call myFunction()",
-      B: "myFunction()",
-      C: "call function myFunction()",
-      D: "call = myFunction()",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question:
-      "How do you write an IF statement for executing code if i is NOT equal to 5?",
-    answers: {
-      A: "if i <> 5",
-      B: "if (i!=5)",
-      C: "if i=! 5 then",
-      D: "if (i<>5)",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you start a WHILE loop in JavaScript?",
-    answers: {
-      A: "WHILE ( == 10)",
-      B: "while ( <= 10)",
-      C: "while i = 1 to 10",
-      D: "while (i <= 10; i++)",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "How do you add a comment in JavaScript?",
-    answers: {
-      A: "//This is a comment",
-      B: "$This is a comment",
-      C: "'This is a comment",
-      D: "<!--This is a comment",
-    },
-    correctAnswer: "A",
-  },
-  {
-    question: "How do you find the number with the highest value of x and y?",
-    answers: {
-      A: "ceil(x,y)",
-      B: "Math.max(x,y)",
-      C: "top(x,y)",
-      D: "Math.ceil(x,y)",
-    },
-    correctAnswer: "B",
-  },
-  {
-    question: "Which event occurs when the user clicks on an HTML element?",
-    answers: {
-      A: "onmouseclick",
-      B: "onclick",
-      C: "onchange",
-      D: "onmouseover",
-    },
-    correctAnswer: "B",
-  },
-];
+  // function to return correct answer string
+  function correctHTMLAnswer(correctHTMLStringNo, qHTMLNumber) {
+    console.log("qHTMLNumber: " + qHTMLNumber); // logs 1,2,3,4 after called below
+    return (
+      "The correct answer for question #" +
+      qHTMLNumber +
+      ": &nbsp;<strong>" +
+      document.getElementById(correctHTMLStringNo).innerHTML +
+      "</strong>"
+    );
+  }
+
+  // print correct answers only if wrong (calls correctAnswer function)
+  if (answerHTMLScore("HTMLQ1") === 0) {
+    document.getElementById("correctHTMLAnswer1").innerHTML = correctHTMLAnswer(
+      "correctHTMLString1",
+      1
+    );
+  }
+  if (answerHTMLScore("HTMLQ2") === 0) {
+    document.getElementById("correctHTMLAnswer2").innerHTML = correctHTMLAnswer(
+      "correctHTMLString2",
+      2
+    );
+  }
+  if (answerHTMLScore("HTMLQ3") === 0) {
+    document.getElementById("correctHTMLAnswer3").innerHTML = correctHTMLAnswer(
+      "correctHTMLString3",
+      3
+    );
+  }
+  if (answerHTMLScore("HTMLQ4") === 0) {
+    document.getElementById("correctHTMLAnswer4").innerHTML = correctHTMLAnswer(
+      "correctHTMLString4",
+      4
+    );
+  }
+  if (answerHTMLScore("HTMLQ5") === 0) {
+    document.getElementById("correctHTMLAnswer5").innerHTML = correctHTMLAnswer(
+      "correctHTMLString5",
+      5
+    );
+  }
+  if (answerHTMLScore("HTMLQ6") === 0) {
+    document.getElementById("correctHTMLAnswer6").innerHTML = correctHTMLAnswer(
+      "correctHTMLString6",
+      6
+    );
+  }
+  if (answerHTMLScore("HTMLQ7") === 0) {
+    document.getElementById("correctHTMLAnswer7").innerHTML = correctHTMLAnswer(
+      "correctHTMLString7",
+      7
+    );
+  }
+  if (answerHTMLScore("HTMLQ8") === 0) {
+    document.getElementById("correctHTMLAnswer8").innerHTML = correctHTMLAnswer(
+      "correctHTMLString8",
+      8
+    );
+  }
+  if (answerHTMLScore("HTMLQ9") === 0) {
+    document.getElementById("correctHTMLAnswer9").innerHTML = correctHTMLAnswer(
+      "correctHTMLString9",
+      9
+    );
+  }
+  if (answerHTMLScore("HTMLQ10") === 0) {
+    document.getElementById("correctHTMLAnswer10").innerHTML =
+      correctHTMLAnswer("correctHTMLString10", 10);
+  }
+
+  // calculate "possible score" integer
+  var questionCountHTMLArray = document.getElementsByClassName("HTMLQuestion");
+
+  var HTMLQuestionCounter = 0;
+  for (var i = 0, length = questionCountHTMLArray.length; i < length; i++) {
+    HTMLQuestionCounter++;
+  }
+
+  // show score as "score/possible score"
+  var showHTMLScore =
+    "Your Score: " + calcHTMLScore + "/" + HTMLQuestionCounter;
+  // if 4/4, "perfect score!"
+  if (calcHTMLScore === HTMLQuestionCounter) {
+    showHTMLScore = showHTMLScore + "&nbsp; <strong>Perfect Score!</strong>";
+  }
+  document.getElementById("userHTMLScore").innerHTML = showHTMLScore;
+}
+
+$(document).ready(function () {
+  $("#submitHTMLButton").click(function () {
+    $(this).addClass("hide");
+  });
+});
+
+function submitJavaScriptQuiz() {
+  console.log("submitted");
+
+  // get each answer score
+  function answerJavaScriptScore(qJavaScriptName) {
+    var radiosJavaScriptNo = document.getElementsByName(qJavaScriptName);
+
+    for (var i = 0, length = radiosJavaScriptNo.length; i < length; i++) {
+      if (radiosJavaScriptNo[i].checked) {
+        // do something with radiosNo
+        var answerJavaScriptValue = Number(radiosJavaScriptNo[i].value);
+      }
+    }
+    // change NaNs to zero
+    if (isNaN(answerJavaScriptValue)) {
+      answerJavaScriptValue = 0;
+    }
+    return answerJavaScriptValue;
+  }
+
+  // calc score with answerScore function
+  var calcJavaScriptScore =
+    answerJavaScriptScore("JavaScriptQ1") +
+    answerJavaScriptScore("JavaScriptQ2") +
+    answerJavaScriptScore("JavaScriptQ3") +
+    answerJavaScriptScore("JavaScriptQ4") +
+    answerJavaScriptScore("JavaScriptQ5") +
+    answerJavaScriptScore("JavaScriptQ6") +
+    answerJavaScriptScore("JavaScriptQ7") +
+    answerJavaScriptScore("JavaScriptQ8") +
+    answerJavaScriptScore("JavaScriptQ9") +
+    answerJavaScriptScore("JavaScriptQ10");
+  console.log("CalcJavaScriptScore: " + calcJavaScriptScore); // it works!
+
+  // function to return correct answer string
+  function correctJavaScriptAnswer(
+    correctJavaScriptStringNo,
+    qJavaScriptNumber
+  ) {
+    console.log("qJavaScriptNumber: " + qJavaScriptNumber); // logs 1,2,3,4 after called below
+    return (
+      "The correct answer for question #" +
+      qJavaScriptNumber +
+      ": &nbsp;<strong>" +
+      document.getElementById(correctJavaScriptStringNo).innerHTML +
+      "</strong>"
+    );
+  }
+
+  // print correct answers only if wrong (calls correctAnswer function)
+  if (answerJavaScriptScore("JavaScriptQ1") === 0) {
+    document.getElementById("correctJavaScriptAnswer1").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString1", 1);
+  }
+  if (answerJavaScriptScore("JavaScriptQ2") === 0) {
+    document.getElementById("correctJavaScriptAnswer2").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString2", 2);
+  }
+  if (answerJavaScriptScore("JavaScriptQ3") === 0) {
+    document.getElementById("correctJavaScriptAnswer3").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString3", 3);
+  }
+  if (answerJavaScriptScore("JavaScriptQ4") === 0) {
+    document.getElementById("correctJavaScriptAnswer4").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString4", 4);
+  }
+  if (answerJavaScriptScore("JavaScriptQ5") === 0) {
+    document.getElementById("correctJavaScriptAnswer5").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString5", 5);
+  }
+  if (answerJavaScriptScore("JavaScriptQ6") === 0) {
+    document.getElementById("correctJavaScriptAnswer6").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString6", 6);
+  }
+  if (answerJavaScriptScore("JavaScriptQ7") === 0) {
+    document.getElementById("correctJavaScriptAnswer7").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString7", 7);
+  }
+  if (answerJavaScriptScore("JavaScriptQ8") === 0) {
+    document.getElementById("correctJavaScriptAnswer8").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString8", 8);
+  }
+  if (answerJavaScriptScore("JavaScriptQ9") === 0) {
+    document.getElementById("correctJavaScriptAnswer9").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString9", 9);
+  }
+  if (answerJavaScriptScore("JavaScriptQ10") === 0) {
+    document.getElementById("correctJavaScriptAnswer10").innerHTML =
+      correctJavaScriptAnswer("correctJavaScriptString10", 10);
+  }
+
+  // calculate "possible score" integer
+  var questionCountJavaScriptArray =
+    document.getElementsByClassName("JavaScriptQuestion");
+
+  var JavaScriptQuestionCounter = 0;
+  for (
+    var i = 0, length = questionCountJavaScriptArray.length;
+    i < length;
+    i++
+  ) {
+    JavaScriptQuestionCounter++;
+  }
+
+  // show score as "score/possible score"
+  var showJavaScriptScore =
+    "Your Score: " + calcJavaScriptScore + "/" + JavaScriptQuestionCounter;
+  // if 4/4, "perfect score!"
+  if (calcJavaScriptScore === JavaScriptQuestionCounter) {
+    showJavaScriptScore =
+      showJavaScriptScore + "&nbsp; <strong>Perfect Score!</strong>";
+  }
+  document.getElementById("userJavaScriptScore").innerHTML =
+    showJavaScriptScore;
+}
+
+$(document).ready(function () {
+  $("#submitJavaScriptButton").click(function () {
+    $(this).addClass("hide");
+  });
+});
+

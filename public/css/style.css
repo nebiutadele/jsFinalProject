@@ -1,9 +1,115 @@
 p {
-    margin: 10px 0 !important;
+  margin: 10px 0 !important;
+}
+.position {
+  position: fixed;
 }
 
+.display {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
 .login-container {
-    width: 400px;
-    margin-top: 50px;
-    text-align: center;
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.container {
+  border: solid;
+}
+
+.dark_mode {
+  background-color: black;
+  color: white;
+}
+#intro {
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
+  border-top: 10px;
+  border-left: 10px;
+  border-right: 10px;
+  border-width: 2px;
+  border-color: black;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.modified_btn {
+  border-block-color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: darkgray;
+}
+
+.page_summary {
+  display: flex;
+  margin: 60px;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+.main_header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+.headers {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#laptop_image {
+  max-width: 30%;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark_mode {
+  background-color: black;
+  color: white;
+}
+
+.dark_mode_button {
+  border: none;
+  font-size: 20px;
+  margin-top: 400px;
+  margin-left: 20px;
 }

@@ -9,7 +9,11 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+<<<<<<< HEAD
         callbackURL: '/auth/google/callback',
+=======
+        callbackURL: "/auth/google/callback",
+>>>>>>> e2362f5875d302447ec362b40b92779b0a6dd700
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
@@ -18,6 +22,7 @@ module.exports = function (passport) {
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
           image: profile.photos[0].value,
+<<<<<<< HEAD
         }
 
         try {
@@ -31,6 +36,20 @@ module.exports = function (passport) {
           }
         } catch (err) {
           console.error(err)
+=======
+        };
+        try {
+          let user = await User.findOne({ googleId: profile.id });
+
+          if (user) {
+            done(null, user);
+          } else {
+            user = await User.create(newUser);
+            done(null, user);
+          }
+        } catch (err) {
+          console.error(err);
+>>>>>>> e2362f5875d302447ec362b40b92779b0a6dd700
         }
       }
     )
